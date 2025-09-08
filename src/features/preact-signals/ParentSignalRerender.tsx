@@ -15,7 +15,7 @@ export const ParentSignalRerender = () => {
     <div className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-xl">
       <div className="mb-6 text-center">
         <h2 className="text-xl font-semibold text-gray-900 mb-2">
-          Parent Re-render Example
+          Parent Re-render Example (Signals)
         </h2>
         <div className="text-3xl font-bold text-purple-600">{parentSignal}</div>
       </div>

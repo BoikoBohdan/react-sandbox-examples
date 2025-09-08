@@ -1,12 +1,22 @@
 ## @preact/signals-react
 Arguably one of the most differentiated performance features of signals is the ability to pass a signal value directly into JSX and have it rendered as text in the DOM without the need to re-render the containing component. This can have a tremendous performance benefit as any children of the component that is being updated will not re-render.
 
+![Signals Component](./assets/SignalsComponent.png)
+
 ### Key Features:
 - **Granular Updates**: Updates DOM nodes directly without triggering full component re-renders
+- **Separate Node Rendering**: Signal values are rendered as separate DOM nodes, allowing for precise updates without affecting parent or sibling components
 - **Performance Optimization**: Ideal for applications with frequent state changes (e.g., dashboards, real-time apps)
 - **Flexible Scope**: Supports both global and component-scoped signals
   - Global signals: Shared state across multiple components
   - Scoped signals: Local state as an alternative to useState
+
+### How Signal Rendering Works
+When a signal value is used directly in JSX, it creates a separate text node in the DOM. This means:
+- Only the specific text node updates when the signal value changes
+- Parent components don't re-render
+- Sibling components remain unaffected
+- The update is as granular as possible
 
 ### Use Cases:
 - Real-time dashboards
@@ -18,4 +28,4 @@ Arguably one of the most differentiated performance features of signals is the a
 The demo includes a computationally intensive Fibonacci calculation that takes approximately 3 seconds to complete. This example showcases how:
 
 - **With Signals**: The heavy computation is not re-triggered when unrelated state changes occur
-- **Real Impact**: You can observe instant updates without affecting other components 
+- **Real Impact**: You can observe instant updates without affecting other components
